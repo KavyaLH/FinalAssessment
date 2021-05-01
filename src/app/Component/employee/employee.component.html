@@ -1,0 +1,15 @@
+<table style="margin-top: 10pc;">
+  <tr>
+    <th>Employee ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Contact Number</th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let empData of emplData">
+    <td>{{empData.eid}}</td>
+    <td> {{empData.name}}</td>
+    <td>{{empData.email}}</td>
+    <td>{{empData.contact}} </td>
+    <td><button class="button" (click)=deleteEmployee(empData.eid)>Delete</button></td>
+  </tr>

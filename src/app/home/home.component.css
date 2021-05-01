@@ -1,0 +1,29 @@
+
+.button {
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    color: #333;
+    background: rgb(20, 1, 1) ;
+	  box-shadow: 0 3px 20px 0 #0000003b;
+    color:rgb(247, 185, 72);
+    font-size: 20px;
+    font-weight: 7.5px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+ 
+  
+  .button:hover {
+    background-color: rgb(247, 185, 72);
+    color: rgb(20, 1, 1);
+    box-shadow: 0 12px 16px 0 rgb(20, 1, 1),0 17px 50px 0 rgba(0,0,0,0.19);
+    cursor: pointer;
+    font-size: 23px;
+  }
+  
+  a{
+    margin:10px; 
+    text-decoration: none;
+  }
+  

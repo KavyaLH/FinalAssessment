@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+
+
+background-image: url(C:\Users\Dell\Desktop\Kavya\emp2.jpg);
+background-size: cover;
+background-position: 50% 20%;
+}
