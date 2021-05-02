@@ -10,6 +10,7 @@ import { EmployeeService } from '../service/employee.service';
 })
 export class EmployeeComponent implements OnInit {
 
+  public isValidHeader : boolean = true;
   public emplData = [];
   empll: Empl = new Empl();
 
@@ -24,7 +25,9 @@ export class EmployeeComponent implements OnInit {
     {
 
       this.emData.getEmployees().subscribe(data =>
-        this.emplData = data)
+        
+        console.log(this.emplData = data))
+        
     }
   }
 
@@ -41,5 +44,11 @@ export class EmployeeComponent implements OnInit {
     console.log(eid)
     this.id = eid;
     this.router.navigate(['/view'])
+
+  }
+  logoutForm()
+  {
+   
+    this.router.navigate(['/login'])
   }
 }

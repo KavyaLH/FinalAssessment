@@ -46,11 +46,12 @@
             </div>
         </div>
         <p>
-            <label>DOB</label><input type="date"><br>
+            <label>DOB</label>
+            <input type="date"  name="edob" #edob="ngModel" [(ngModel)]="EmployeeValidation.edob"><br>
         </p>
 
         <p><label>Gender:</label>
-            <input type="text"><br>
+            <input type="text" name="egender" #egender="ngModel" [(ngModel)]="EmployeeValidation.egender"><br>
         </p>
 
         <p>
@@ -89,7 +90,7 @@
         </div>
         <h2>{{name1}}</h2>
         <button class="button" [disabled]="registration.invalid">Submit</button><button
-            class="button">Clear</button><br><br><br>
+            class="button" (click)=ClearForm()>Back to home page</button><br><br><br>
         <div class="alert alert-info" *ngIf=isAdded routerLink="/Login">
             <p>User Added SuccessFully!</p>
         </div>

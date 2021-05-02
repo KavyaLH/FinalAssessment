@@ -93,6 +93,10 @@ this.empService.updateEmployeeByEmail(this.empll,email)
 
 
 
-
+logoutForm()
+{
+ 
+  this.router.navigate(['/login'])
+}
 }
 

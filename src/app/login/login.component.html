@@ -1,0 +1,51 @@
+
+<div class="transbox5">
+    <form #login="ngForm" (ngSubmit)="loginForm(login)">
+        <p>
+            <label>Name</label>
+            <input type="text" name="ename" minlength="3" maxlength="10" required pattern="[A-Za-z ]+$" #ename="ngModel"
+                [(ngModel)]="EmployeeValidation.ename">
+        </p>
+        <div *ngIf="ename.errors && (ename.dirty || ename.touched)">
+            <div [hidden]="!ename.errors.required">
+                <h2>Please Enter name</h2>
+            </div>
+            <div [hidden]="!(ename.errors.minlength || ename.errors.maxlength)">
+
+                <h2>Length of the name should be min of 3 and max of 10 character</h2>
+            </div>
+            <div [hidden]="!ename.errors.pattern">
+                <h2>Special characters and numbers are not allowed</h2>
+            </div>
+        </div>
+    
+
+        <p>
+            <label>Password</label>
+            <input type="password" name="epassword" maxlength="18" minlength="8" required
+                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*#?&_-])[a-zA-Z0-9$@$!%*#?&_-]+$"
+                #epassword="ngModel" [(ngModel)]="EmployeeValidation.epassword"><br>
+        </p>
+
+        <div *ngIf="epassword.errors && (epassword.dirty || epassword.touched)">
+            <div [hidden]="!epassword.errors.required">
+                <h2>Please Enter Password</h2>
+            </div>
+            <div [hidden]="!epassword.errors.pattern">
+                <h2>Password should contain atleast 1 digit, 1 Upper case letter, 1 lower case letter and 1 special
+                    characters</h2>
+            </div>
+            <div [hidden]="!(epassword.errors.minlength || epassword.errors.maxlength)">
+                <h2>Password should contain min of 8 and max of 18 characters</h2>
+            </div>
+
+        </div>
+       
+        <button class="button" [disabled]="login.invalid">Submit</button><button
+            class="button" (click)=ClearForm()>Back to home page</button><br><br><br>
+        <div class="alert alert-info" *ngIf=isAdded routerLink="/Login">
+            <p>User Added SuccessFully!</p>
+        </div>
+    </form>
+</div>
+<router-outlet></router-outlet>

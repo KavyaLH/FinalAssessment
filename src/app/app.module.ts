@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UpdateEmplyoeeComponent } from './update-emplyoee/update-emplyoee.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { UpdateEmplyoeeComponent } from './update-emplyoee/update-emplyoee.compo
     PageNotFoundComponent,
     HomeComponent,
     DashboardComponent,
-    UpdateEmplyoeeComponent
+    UpdateEmplyoeeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

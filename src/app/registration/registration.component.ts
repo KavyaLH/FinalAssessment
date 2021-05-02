@@ -55,10 +55,24 @@ export class RegistrationComponent implements OnInit {
     this.empService.saveEmployee(this.empll)
       .subscribe(data => {
         console.log(data);
-        this.isAdded = true;
-      }, error => console.log(error))
-    this.router.navigate(['/view'])
+        if( data == null)
+        {
+          this.router.navigate(['/home'])
+        }
+      else
+      {
+    this.router.navigate(['/login'])
+      }
+  })
+}
+
+  ClearForm(){
+    this.router.navigate(['/home'])
   }
 
-
+  logoutForm()
+  {
+   
+    this.router.navigate(['/login'])
+  }
 }

@@ -5,7 +5,7 @@ input.ng.Invalid{
     border-color: 4px solid red;
 }
 form  { display: table; margin:0 auto;  font-size: 25px; margin-top: 5pc; margin-left: 4pc;  }
-p     { display: table-row; margin-right: 100pc; }
+p     { display: table-row;  }
 label { display: table-cell; font-family: Arial, Helvetica, sans-serif, Geneva, Tahoma, sans-serif; font-weight: bold;}
 input { display: table-cell; font-size: 25px; width:65%; margin-left: 2pc; }
 
@@ -25,7 +25,6 @@ input { display: table-cell; font-size: 25px; width:65%; margin-left: 2pc; }
     font-weight: 7.5px;
     font-family: Arial, Helvetica, sans-serif;
    margin: 2px;
-   text-decoration: none;
   }
  
   
@@ -45,18 +44,18 @@ h2{
     font-weight: 800;
 }
 
-div.transbox3 {
+div.transbox5 {
     margin: 10px;
-margin-top: 150px;
-margin-left: 38pc;
-margin-right: 350px;
-background-color: #ffffff;
-border-style: dotted;
-border-color: black;
-border-width: 5px;
-border-radius: 8px;
-opacity: 0.8;
-width: 40%;
+    margin-top: 150px;
+    margin-left: 38pc;
+    margin-right: 350px;
+    background-color: #ffffff;
+    border-style: dotted;
+    border-color: black;
+    border-width: 5px;
+    border-radius: 8px;
+    opacity: 0.8;
+    width: 40%;
 
 
 }
