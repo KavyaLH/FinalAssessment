@@ -48,7 +48,7 @@ div.transbox5 {
     margin: 10px;
     margin-top: 150px;
     margin-left: 38pc;
-    margin-right: 350px;
+    margin-right: 370pc;
     background-color: #ffffff;
     border-style: dotted;
     border-color: black;
@@ -56,10 +56,12 @@ div.transbox5 {
     border-radius: 8px;
     opacity: 0.8;
     width: 40%;
-
+    overflow-y: hidden;
+    overflow-x: auto;
+    text-overflow: elipsis; 
 
 }
-input[type=text],input[type=email], input[type=password],input[type=tel],input[type=date],input[type=number], textarea {  
+input[type=text],input[type=email], input[type=password], textarea {  
     width: 90%;  
     padding: 10px;  
    
@@ -68,7 +70,7 @@ input[type=text],input[type=email], input[type=password],input[type=tel],input[t
     background: #f1f1f1;
 }
   
-input[type=text]:focus, input[type=password]:focus, input[type=number]:focus, input[type=radio]:focus, input[type=date]:focus, input[type=email]:focus, input[type=tel]:focus {  
+input[type=text]:focus, input[type=password]:focus, input[type=number]:focus  {  
     background-color:rgb(243, 71, 243);  
     outline: none;  
     width: 90%; 

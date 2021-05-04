@@ -1,8 +1,11 @@
 table {
    font-family: arial, sans-serif;
    border-collapse: collapse;
-   width: 45%;
+   width: 48%;
    margin:0 auto;
+   margin-right: 350pc;
+   margin-left: 35pc;
+
    height: fit-content;
   }
   
@@ -23,17 +26,7 @@ table {
     background-color:  #9e9d9d;
     color: rgb(5, 5, 5);
   }
-  th{
-    background-color:  #464444;
-    color: white;
-    text-align: center;
-    font-weight: 900;
-    font-size: 20px;
-  }
 
-  td:tr:nth-child(5) {
-    background-color: transparent;
-  }
 
   .button {
     border: none;
@@ -59,4 +52,23 @@ table {
     cursor: pointer;
     font-size: 23px;
   }
+  
+  .search{
+    font-size: 30px;
+font-family: fantasy;
+    margin-left: 35pc;
+    margin-right: 31pc;
+    margin-top: 10pc;
+    background-color: rgb(197, 19, 158);
+   
+  }
+ 
+  input[type=text], textarea {  
+    width: 45.5pc;  
+    padding: 15px;  
+    font-size: 20px;
+    display: inline-block;  
+    border: soli grey; 
+    background: #f1f1f1;
+}
   

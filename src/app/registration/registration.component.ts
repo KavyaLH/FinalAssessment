@@ -24,7 +24,7 @@ export class RegistrationComponent implements OnInit {
     edob: ""
 
   }
-  public name1: String = " ";
+  public msg: String = " ";
   constructor(public empService: EmployeeService, private router: Router) { }
   public isAdded = false;
   public pass: boolean;
@@ -38,7 +38,7 @@ export class RegistrationComponent implements OnInit {
     console.log("ABCD " + this.EmployeeValidation.econpass);
     if (!(this.EmployeeValidation.epassword === this.EmployeeValidation.econpass)) {
       this.pass = true;
-      this.name1 = "Not Matched"
+      this.msg = "Not Matched"
 
     }
 
@@ -55,24 +55,20 @@ export class RegistrationComponent implements OnInit {
     this.empService.saveEmployee(this.empll)
       .subscribe(data => {
         console.log(data);
-        if( data == null)
-        {
+        if (data == null) {
+          window.alert("Registration is not successfull. Try again")
           this.router.navigate(['/home'])
         }
-      else
-      {
-    this.router.navigate(['/login'])
-      }
-  })
-}
-
-  ClearForm(){
-    this.router.navigate(['/home'])
+        else {
+          window.alert("Registration is successful")
+          this.router.navigate(['/login'])
+        }
+      })
   }
 
-  logoutForm()
-  {
-   
-    this.router.navigate(['/login'])
+  ClearForm() {
+    if (confirm("Are you sure to get back to home page?")) {
+      this.router.navigate(['/home'])
+    }
   }
 }

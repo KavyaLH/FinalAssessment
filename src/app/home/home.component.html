@@ -1,10 +1,37 @@
 <app-header></app-header>
 
-<div style="margin-left: 54pc; margin-top:-5pc;" >
- <a routerLink="/Registration" class="button button5">Registration</a>
-    <a routerLink="/login" class="button">Login</a>
-    <!-- <a routerLink="/view" class="button button5">View Employee</a>
-    <a routerLink="/update" class="button">Update Employee</a> -->
-</div>
+<nav *ngIf="router.url == '/home'">
+    <div style="margin-left: 54pc; margin-top:-5pc;">
+        <a routerLink="/Registration" class="button button5">Registration</a>
+        <a routerLink="/login" class="button">Login</a>
+    </div>
+</nav>
+
+<nav *ngIf="router.url == '/Registration'">
+    <div style="margin-left: 59pc; margin-top:-5pc;">
+        <a routerLink="/login" class="button">Login</a>
+    </div>
+</nav>
+
+<nav *ngIf="router.url == '/login'">
+    <div style="margin-left: 59pc; margin-top:-5pc;">
+        <a routerLink="/Registration" class="button button5">Registration</a>
+    </div>
+</nav>
+
+<nav *ngIf="router.url == '/view'">
+    <div style="margin-left: 54pc; margin-top:-5pc;">
+        <a routerLink="/view" class="button button5" (click)=logoutForm()>Logout</a>
+        <a routerLink="/update" class="button">Update Employee</a>
+    </div>
+</nav>
+
+<nav *ngIf="router.url == '/update'">
+    <div style="margin-left: 54pc; margin-top:-5pc;">
+        <a routerLink="/update" class="button button5" (click)=logoutForm()>Logout</a>
+        <a routerLink="/view" class="button button5">View Employee</a>
+    </div>
+</nav>
 
 <router-outlet></router-outlet>
+<app-footer></app-footer>

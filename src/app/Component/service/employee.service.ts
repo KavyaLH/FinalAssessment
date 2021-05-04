@@ -33,18 +33,27 @@ export class EmployeeService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     })
   }
-  
+
   updateEmployeeByEmail(empl: Empl, email: String): Observable<Empl> {
     return this._http.put<Empl>(`http://localhost:8096/putByEmail/${email}`, empl, {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     })
   }
 
-  getLoginDetails(name1:String , name: String, password: String ): Observable<Empl[]> {
+  getLoginDetails(name1: String, name: String, password: String): Observable<Empl[]> {
     const requestOptions: Object = {
 
       responseType: 'text'
     }
-    return this._http.get<Empl[]>(`http://localhost:8096/getByNamePasswrd/${name}/${password}`,requestOptions )
+    return this._http.get<Empl[]>(`http://localhost:8096/getByNamePasswrd/${name}/${password}`, requestOptions)
+  }
+
+
+  getEmplByEmail(email: String): Observable<Empl[]> {
+    const requestOptions: Object = {
+
+      responseType: 'text'
+    }
+    return this._http.get<Empl[]>(`http://localhost:8096/getByEmailID/${email}`)
   }
 }

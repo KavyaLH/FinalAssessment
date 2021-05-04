@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Empl } from '../model/empl';
 import { EmployeeService } from '../service/employee.service';
@@ -10,45 +10,54 @@ import { EmployeeService } from '../service/employee.service';
 })
 export class EmployeeComponent implements OnInit {
 
-  public isValidHeader : boolean = true;
   public emplData = [];
+  empllData: Empl[] = [];
   empll: Empl = new Empl();
-
   public isDeleted: boolean;
+  
   public EmployeeAlteration = {
     eid: "",
   }
   public id: any;
+  fname: String;
+  term: String;
   constructor(private emData: EmployeeService, private router: Router) { }
 
   ngOnInit(): void {
     {
 
       this.emData.getEmployees().subscribe(data =>
-        
         console.log(this.emplData = data))
-        
+
     }
   }
 
-  deleteEmployee(eid: any) {
+  deleteEmployee(eid: any, ename: String) {
     console.log(eid);
-    this.emData.deleteEmployee(eid).subscribe(data =>
+     if (confirm("Are you sure to delete ")) {
+      this.emData.deleteEmployee(eid).subscribe(data =>
       console.log(`Employee with ID ${eid} is deleted `));
-    this.isDeleted = true;
-    this.router.navigate(['/view']);
-    console.log("now" + this.id);
+      this.isDeleted = true;
+      window.alert("Employee " + ename + "'s record has been deleted")
+      this.router.navigate(['/view']);
+      console.log("now" + this.id);
+    }
+  }
+  onSearch() {
+    if (this.fname != "") {
+    }
+    else if (this.fname == "") {
+      this.ngOnInit()
+    }
+    this.empllData = this.emplData.filter(data => {
+      return data.fname.toLocaleLowerCase().match(this.fname.toLocaleLowerCase());
+    })
+
   }
 
-  updateEmployee(eid: any) {
-    console.log(eid)
-    this.id = eid;
-    this.router.navigate(['/view'])
-
-  }
-  logoutForm()
-  {
-   
-    this.router.navigate(['/login'])
+  logoutForm() {
+    if (confirm("Are you sure to Logout?")) {
+      this.router.navigate(['/login'])
+    }
   }
 }

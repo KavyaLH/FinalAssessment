@@ -1,17 +1,15 @@
-<div style="margin-left: 71.6pc; margin-top:-1.5pc;"> <a routerLink="/view" class="button button5" (click)=logoutForm()>Logout</a></div> 
-
-<div class = "transbox3">
+<div class="transbox3">
     <h1 style="text-align: center;">Update User by Email</h1>
     <form #updation="ngForm" (ngSubmit)="updateForm1(updation)">
-       
-         <p>
+
+        <p>
             <label>Name</label>
-            <input type="text" name="ename" minlength="3" maxlength="10"    pattern="[A-Za-z ]+$" #ename="ngModel"
-            [(ngModel)]="EmployeeValidation.ename">
+            <input type="text" name="ename" minlength="3" maxlength="10" pattern="[A-Za-z ]+$" #ename="ngModel"
+                [(ngModel)]="EmployeeValidation.ename">
         </p>
         <div *ngIf="ename.errors && (ename.dirty || ename.touched)">
-           
-            
+
+
             <div [hidden]="!(ename.errors.minlength || ename.errors.maxlength)">
 
                 <h2>Length of the name should be min of 3 and max of 10 character</h2>
@@ -22,80 +20,37 @@
         </div>
         <p>
             <label>Email</label>
-            <input type="email" name="eemail"  required pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]+$" #eemail="ngModel" 
+            <input type="email" name="eemail" required placeholder="{{this.empll.email}}"
+                pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]+$" #eemail="ngModel"
                 [(ngModel)]="EmployeeValidation.eemail">
         </p>
-            <div *ngIf="eemail.errors && (eemail.dirty || eemail.touched)">
-                <div [hidden]="!eemail.errors.required">
-                    <h2>Please Enter email</h2>
-                </div>
+        <div *ngIf="eemail.errors && (eemail.dirty || eemail.touched)">
+            <div [hidden]="!eemail.errors.required">
+                <h2>Please Enter email</h2>
+            </div>
             <div [hidden]="!eemail.errors.pattern">
                 <h2>Enter valid email</h2>
-            </div> 
+            </div>
         </div>
         <p>
             <label>Contact</label>
-            <input type="text" name="econtact" maxlength="10"  pattern="[0-9]+$" #econtact="ngModel"
+            <input type="text" name="econtact" maxlength="10" pattern="[0-9]+$" #econtact="ngModel"
                 [(ngModel)]="EmployeeValidation.econtact"><br>
         </p>
         <div *ngIf="econtact.errors && (econtact.dirty || econtact.touched)">
-        
+
             <div [hidden]="!econtact.errors.pattern">
                 <h2>Only numbers are allowed</h2>
             </div>
         </div>
-        <p>
-            <label>DOB</label><input type="date"><br>
-        </p>
-        
-        <!-- <label>Gender</label><input type="radio" id="r">Male
-            <input type="radio" id="r">Male
-            <br> -->
-           <p><label >Gender:</label>
-           <input type="text"><br></p> 
-         <!--    
-              <input style="margin-left: 2pc;" id="male" type="radio" value="male" name="gender" >
-              <label for="male">Male</label>
-        
-              <input style="margin-left: -10pc;" id="female" type="radio" value="female" name="gender" >
-              <label style="margin-left: -100pc;"for="female">Female</label>
-           -->
-          
-<p>
-         <label>Password</label>
-            <input type="password" name="epassword" maxlength="18" minlength="8" 
-                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*#?&_-])[a-zA-Z0-9$@$!%*#?&_-]+$" #epassword="ngModel"
-                [(ngModel)]="EmployeeValidation.epassword"><br>
-        </p>
 
-        <div *ngIf="epassword.errors && (epassword.dirty || epassword.touched)">
-          
-            <div [hidden]="!epassword.errors.pattern">
-                <h2>Password should contain atleast 1 digit, 1 Upper case letter, 1 lower case letter and 1 special
-                    characters</h2>
-            </div>
-            <div [hidden]="!(epassword.errors.minlength || epassword.errors.maxlength)">
-                <h2>Password should contain min of 8 and max of 18 characters</h2>
-            </div>
+        <button class="button" [disabled]="updation.invalid">Update</button>
+        <button class="button" (click)="ClearForm()">Clear</button><br><br><br>
+        <div class="alert alert-info" *ngIf=isAdded routerLink="/Login">
+            <p>User Added SuccessFully!</p>
+        </div>
+    </form>
 
-        </div>
-        <p><label>Confirm Password</label>
-            <input type="password" name="econpass"  #econpass="ngModel" [(ngModel)]="EmployeeValidation.econpass"><br>
-        </p>
-        <div *ngIf="econpass.touched && econpass.invalid">
-       
-        </div>
-        <div *ngIf="econpass.value != epassword.value">
-       
-        <h2>Password Does not match with confirm password</h2>
-    
-</div>
-     
-          <button class="button" [disabled]="updation.invalid" >Submit</button><button class="button"  >Clear</button><br><br><br>
-    <div class="alert alert-info" *ngIf=isAdded routerLink="/Login">
-              <p>User Added SuccessFully!</p></div>
-        </form>
-  
 </div>
 
 <router-outlet></router-outlet>

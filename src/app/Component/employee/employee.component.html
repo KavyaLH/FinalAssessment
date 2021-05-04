@@ -1,8 +1,11 @@
-<div style="margin-left: 71.6pc; margin-top:-1.5pc;"> <a routerLink="/view" class="button button5" (click)=logoutForm()>Logout</a></div>  
-<div style="margin-left: 60pc; margin-top:5pc;"> <a routerLink="/update" class="button">Update Employee</a></div>
-
-   
-    <table style="margin-top: 10pc;">
+<!-- <div>
+  <input type="text" #myInput [(ngModel)]="fname" (input)=onSearch()/> {{fname}}
+</div> -->
+<div class="search">
+  <p><input type="text" [(ngModel)]="term" placeholder="What are you looking for?"><span
+      style="text-align: center; margin-left: 3.5pc;">Search</span> </p>
+</div>
+<table style="margin-top: 2pc;">
   <tr>
     <th>Employee ID</th>
     <th>Name</th>
@@ -10,10 +13,11 @@
     <th>Contact Number</th>
     <th></th>
   </tr>
-  <tr *ngFor="let empData of emplData">
+  <tr *ngFor="let empData of emplData  | filter:term">
     <td>{{empData.eid}}</td>
     <td> {{empData.name}}</td>
     <td>{{empData.email}}</td>
     <td>{{empData.contact}} </td>
-    <td><button class="button" (click)=deleteEmployee(empData.eid)>Delete</button></td>
+    <td><button class="button" (click)=deleteEmployee(empData.eid,empData.name)>Delete</button>
   </tr>
+</table>

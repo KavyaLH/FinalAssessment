@@ -66,11 +66,9 @@
                 <h2>Please Enter Password</h2>
             </div>
             <div [hidden]="!epassword.errors.pattern">
-                <h2>Password should contain atleast 1 digit, 1 Upper case letter, 1 lower case letter and 1 special
-                    characters</h2>
+                <h2>Enter valid password</h2>
             </div>
             <div [hidden]="!(epassword.errors.minlength || epassword.errors.maxlength)">
-                <h2>Password should contain min of 8 and max of 18 characters</h2>
             </div>
 
         </div>
@@ -88,8 +86,8 @@
             <h2>Password Does not match with confirm password</h2>
 
         </div>
-        <h2>{{name1}}</h2>
-        <button class="button" [disabled]="registration.invalid">Submit</button><button
+   
+        <button class="button" [disabled]="registration.invalid" >Register</button><button
             class="button" (click)=ClearForm()>Back to home page</button><br><br><br>
         <div class="alert alert-info" *ngIf=isAdded routerLink="/Login">
             <p>User Added SuccessFully!</p>

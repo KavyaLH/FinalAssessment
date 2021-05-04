@@ -6,3 +6,5 @@ background-image: url(C:\Users\Dell\Desktop\Kavya\emp2.jpg);
 background-size: cover;
 background-position: 50% 20%;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
